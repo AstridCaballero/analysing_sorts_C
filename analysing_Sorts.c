@@ -28,19 +28,22 @@ int main(void)
     fprintf(averageData, "range,bubble,insertion,selection,merge\n");
 
     int SIZE = 5000;
-    int numberIterations = 2;
-    
+    int numberIterations = 10;
+
     while (SIZE <= 10000){
         //variables to calculate the average
         double totalTimeBubble = 0.0;
         double totalTimeSelection = 0.0;
         double totalTimeInsertion = 0.0;
         double totalTimeMerge = 0.0;
+        double averageTimeBubble = 0.0;
+        double averageTimeInsertion = 0.0;
+        double averageTimeSelection = 0.0;
+        double averageTimeMerge = 0.0;
 
         //loop 'number_iterations' to calculate average
         int i;
-        for (i = 1; i <= numberIterations; i++){
-            printf("iteration %i\n", i);
+        for (i = 1; i <= numberIterations; i++){            
             //Generate random array
             int *randomArray = malloc(sizeof(int) * SIZE);
             if (randomArray == NULL){
@@ -124,13 +127,12 @@ int main(void)
             free(randomArray);
             free(bubbleArray);    
             free(mergeArray);    
-
         }  
 
-        double averageTimeBubble = totalTimeBubble/numberIterations;
-        double averageTimeInsertion = totalTimeInsertion/numberIterations;
-        double averageTimeSelection = totalTimeSelection/numberIterations;
-        double averageTimeMerge = totalTimeMerge/numberIterations;
+        averageTimeBubble = totalTimeBubble/numberIterations;
+        averageTimeInsertion = totalTimeInsertion/numberIterations;
+        averageTimeSelection = totalTimeSelection/numberIterations;
+        averageTimeMerge = totalTimeMerge/numberIterations;
         
         fprintf(averageData, "%d,%f,%f,%f,%f\n", SIZE, averageTimeBubble, averageTimeInsertion, averageTimeSelection, averageTimeMerge);
 
@@ -139,6 +141,7 @@ int main(void)
         SIZE += 5000;
     }
     fclose(rawData);
+    fclose(averageData);
     return 0;
 }
 
