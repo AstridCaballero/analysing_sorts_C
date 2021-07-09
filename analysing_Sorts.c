@@ -28,14 +28,14 @@ int main(void)
     fprintf(averageData, "range,bubble,insertion,selection,merge\n");
 
     int SIZE = 5000;
-    int numberIterations = 10;
+    int numberIterations = 50;
 
-    while (SIZE <= 10000){
-        //variables to calculate the average
+    while (SIZE <= 50000){
+        //variables to calculate the average  
         double totalTimeBubble = 0.0;
         double totalTimeSelection = 0.0;
         double totalTimeInsertion = 0.0;
-        double totalTimeMerge = 0.0;
+        double totalTimeMerge = 0.0;       
         double averageTimeBubble = 0.0;
         double averageTimeInsertion = 0.0;
         double averageTimeSelection = 0.0;
@@ -43,7 +43,8 @@ int main(void)
 
         //loop 'number_iterations' to calculate average
         int i;
-        for (i = 1; i <= numberIterations; i++){            
+        for (i = 1; i <= numberIterations; i++){             
+                      
             //Generate random array
             int *randomArray = malloc(sizeof(int) * SIZE);
             if (randomArray == NULL){
