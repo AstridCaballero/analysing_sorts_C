@@ -30,7 +30,7 @@ int main(void)
     int SIZE = 5000;
     int numberIterations = 50;
 
-    while (SIZE <= 50000){
+    while (SIZE <= 100000){
         //variables to calculate the average  
         double totalTimeBubble = 0.0;
         double totalTimeSelection = 0.0;
@@ -148,7 +148,6 @@ int main(void)
 
 void bubbleSort(int array[], int size)
 {
-    // TODO: sort array using bubble sort
     int counter = -1;
     int i, temp;
     while (counter != 0)
