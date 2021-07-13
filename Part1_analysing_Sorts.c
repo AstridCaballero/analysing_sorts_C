@@ -202,6 +202,7 @@ int * insertionSort(int arr[], int size)
                 arr[l] = arr[l - 1]; 
             }
             int new_index = index - counter;
+            //move elements that are smaller to the left
             arr[new_index] = temp;
         }         
     }
